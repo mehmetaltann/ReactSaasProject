@@ -1,0 +1,168 @@
+.card {
+  height: 80%;
+  width: 30%;
+  background-color: $color-white;
+  border-radius: 4px;
+  box-shadow: 0 2rem 2.5rem rgba($color-dark, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media only screen and (max-width: 768px) {
+    width: 45%;
+    height: 45%;
+  }
+  
+  @media only screen and (max-width: 480px) {
+    width: 80%;
+    height: 32%;
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: 96%;
+  }
+
+  &__top {
+    flex-basis: 45%;
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.9),
+      rgba(#a3ebb1, 0.7)
+    );
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 84%,
+      0 100%
+    ); //4 koordinat, resmin belirli bir kısmını kırpıp göstermek için kullanılıyor
+    border-radius: 4px 4px 0 0;
+    padding: 3rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__icon {
+    height: 5rem;
+    width: 5rem;
+    color: $color-white;
+    padding-bottom: 5%;
+  }
+  &__texts {
+    color: $color-white;
+    line-height: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__title {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+  &__price {
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: 2.7rem;
+
+    sup {
+      font-size: 0.8rem;
+    }
+  }
+  &__text {
+    font-size: 1rem;
+  }
+
+  &__bottom {
+    flex-basis: 55%;
+    border-radius: 0 0 4px 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__list {
+    list-style: none;
+    width: 80%;
+  }
+
+  &__item {
+    color: #9e9e9e;
+    padding-top: 1rem;
+    border-bottom: 1px solid #ddd;
+
+    display: flex;
+    justify-content: space-between;
+
+    span:last-child {
+      font-weight: bold;
+    }
+
+    &:last-child {
+      border-bottom: none; //son liste elemanı altındaki çizgiyi kaldırdık
+    }
+  }
+
+  &:nth-child(2) {
+    transform: scale(1.1);
+    position: relative;
+
+    @media only screen and (max-width: 768px) {
+      transform: scale(1);
+    }
+
+    &::before {
+      content: url("../../assets/images/badge.png");
+      position: absolute;
+      right: 10%;
+      top: 33%;
+      z-index: 1;
+      transform: scale(1.3);
+
+      @media only screen and (max-width: 768px) {
+        transform: scale(1.2);
+      }
+    }
+
+    &::after {
+      content: "En \a Popüler";
+      white-space: pre; //contente yazdığımız html \a tagını çalıştırmak için
+      position: absolute;
+      right: 13%;
+      top: 36%;
+      z-index: 2;
+
+      color: $color-white;
+      font-weight: 300;
+      font-size: 0.9rem;
+      line-height: 1.25;
+      letter-spacing: 1.5px;
+      text-align: center;
+
+      @media only screen and (max-width: 1024px) {
+        right: 12%;
+        top: 36%;
+      }
+    }
+  }
+
+  &--pink {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(#ee4266, 0.8),
+      rgba(#e8889c, 0.6)
+    );
+  }
+
+  &--purple {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(#540d6e, 0.8),
+      rgba(#532d61, 0.6)
+    );
+  }
+}

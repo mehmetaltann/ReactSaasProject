@@ -1,0 +1,54 @@
+.t1 {
+  font-family: "Nunito", sans-serif;
+  color: $color-secondary;
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1.3;
+
+  span {
+    display: block;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.6rem;
+  }
+} //normal font genişliğinden en büyük
+
+.t2 {
+  font-family: "Nunito", sans-serif;
+  color: $color-secondary;
+  font-size: 2rem;
+  font-weight: 800;
+
+  &--green {
+    color: $color-primary;
+  }
+
+  &--white {
+    color: $color-white;
+    text-shadow: 2px 2px rgba($color-dark, 0.4);
+  }
+} //normal font genişliğinden orta büyük
+
+.t3 {
+  font-size: 1.2rem;
+  color: $color-secondary;
+} //normal font genişliğinden biraz büyük
+
+.t4 {
+  font-size: 1.1rem;
+} //normal font genişliğinden en-az büyük
+
+.s1 {
+  font-size: 0.9rem;
+  color: #909090;
+} //normal font genişliğinden biraz küçük
+
+.s2 {
+  font-size: 0.8rem;
+  color: #909090;
+} //normal font genişliğinden en küçük

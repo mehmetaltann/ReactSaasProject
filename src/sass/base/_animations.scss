@@ -1,0 +1,50 @@
+@keyframes anim-nav-bottom {
+  0% {
+    top:0;
+    opacity: 0;
+  }
+
+  100% {
+    top:2rem;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-nav-button-line {
+  0% {
+    background-color: $color-white;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes anim-nav-button-line-before {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(6px) rotate(-45deg);
+  }
+}
+
+@keyframes anim-nav-button-line-after {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(-6px) rotate(45deg);
+  }
+}

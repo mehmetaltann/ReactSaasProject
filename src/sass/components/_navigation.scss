@@ -1,0 +1,189 @@
+.navigation {
+  flex-basis: 90%;
+  display: flex;
+  justify-content: flex-end;
+
+  position: relative;
+
+  @media only screen and (max-width: 768px) {
+    flex-basis: 100%;
+  }
+
+  @media only screen and (min-width: 1750px) {
+    width: 75%;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    visibility: hidden;
+    display: block;
+    background-color: $color-primary;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.125rem;
+
+    cursor: pointer;
+    padding: 0.25rem;
+
+    @media only screen and (max-width: 768px) {
+      visibility: visible;
+    }
+  }
+
+  &__line {
+    display: block;
+    width: 1.4rem;
+    height: 0.16rem;
+    background-color: $color-white;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 1.4rem;
+      height: 0.16rem;
+      background-color: $color-white;
+      position: absolute;
+    }
+
+    &::before {
+      top: -0.375rem;
+    }
+
+    &::after {
+      top: 0.375rem;
+    }
+  }
+
+  &__checkbox:checked ~ .nav-bottom {
+    animation: anim-nav-bottom 0.4s ease-in 0.2s; //animasyon .2 saniye sonra girecek
+    animation-fill-mode: forwards; //animasyon son karedeki gibi kalır
+  }
+
+  &__checkbox:checked + &__button &__line {
+    animation: anim-nav-button-line 0.31s;
+    animation-fill-mode: forwards; //animasyon son karedeki gibi kalır
+  }
+
+  &__checkbox:checked + &__button &__line::before {
+    animation: anim-nav-button-line-before 0.31s;
+    animation-fill-mode: forwards;
+  }
+
+  &__checkbox:checked + &__button &__line::after {
+    animation: anim-nav-button-line-after 0.31s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.nav-top {
+  flex-basis: 75%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+
+  &__list {
+    list-style: none;
+    flex-basis: 80%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__link {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 3px;
+      background-color: $color-primary;
+      transition: all 0.2s ease-in;
+    }
+
+    &:link,
+    &:visited {
+      font-size: 0.8rem;
+      color: $color-dark;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    &:hover,
+    &:active {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.nav-bottom {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+
+  width: 100%;
+  height: 24rem;
+  padding: 2rem 0;
+  background-color: rgba($color-dark, 0.5);
+  box-shadow: 0 2px 5px 2px rgba($color-dark, 0.2);
+
+  -webkit-backdrop-filter: blur(8px); //tüm tarayıcılarda çalışması için
+  backdrop-filter: blur(8px); //arka planı blur yapmak için
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      display: block;
+      font-size: 1.2rem;
+      color: $color-white;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-secondary;
+    }
+  }
+}

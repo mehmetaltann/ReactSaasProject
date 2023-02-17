@@ -1,0 +1,81 @@
+.comment {
+  height: 21rem;
+  width: 20%;
+  position: relative;
+
+  @media only screen and (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: 55%;
+  }
+
+  &__img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: -4px /* sola doğru */ 3px /* dikeyde */ 4px /* blur */ 3px
+      /* yayılma */ rgba($color-dark, 0.3 /* alpha */);
+    position: absolute;
+    z-index: 1;
+    right: 5%;
+    top: -7%;
+  }
+
+  &__shadow {
+    height: 100%;
+    //tüm tarayıcı sürümlerinde çalışmasın için prefix webkit kulanılır.
+    -webkit-filter: drop-shadow(-1px 6px 3px rgba(#323200, 0.5));
+  }
+
+  &__content {
+    height: 100%;
+    padding: 4rem 1rem;
+    background-color: $color-white;
+    clip-path: polygon(0 0, 100% 10%, 100% 90%, 25% 100%, 0 75%);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::before {
+      content: url("../../assets/images/left-quote.png");
+      position: absolute;
+      left: 3%;
+      top: 3%;
+      transform: scale(0.7);
+      opacity: 0.4;
+    }
+  }
+
+  &__text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #504f4f;
+    text-align: justify;
+  }
+
+  &__author {
+    font-family: "Nunito", sans-serif;
+    text-align: end;
+    font-weight: 200;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  &:nth-child(2),
+  &:nth-child(4) {
+    align-self: flex-end;
+
+    @media only screen and (max-width: 768px) {
+      align-self: flex-start;
+    }
+
+    @media only screen and (max-width: 480px) {
+      align-self: center;
+    }
+  }
+}

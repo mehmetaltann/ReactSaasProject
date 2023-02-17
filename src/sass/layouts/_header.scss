@@ -1,0 +1,33 @@
+.header {
+  height: 8rem;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &__socialMedia-nav {
+    position: absolute;
+    right: 10%;
+    top: 5%;
+
+    @media only screen and (max-width: 768px) {
+      right: 1%;
+    }
+  }
+
+  &__logo {
+    width: 13rem;
+    height: 13rem;
+    position: absolute;
+    left: 2%;
+    z-index: 10;
+
+    @media only screen and (max-width: 768px) {
+      left: 10%;
+    }
+
+    @media only screen and (max-width: 480px) {
+      left: 15%;
+    }
+  }
+}
